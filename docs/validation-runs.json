@@ -1,0 +1,955 @@
+[
+  {
+    "id": "e9211eb03e5e1b0c8c618469a05201c4",
+    "createdAt": "2026-09-28T00:02:27.777344Z",
+    "version": "candidate-a",
+    "status": "error",
+    "gate": "unavailable",
+    "error": "Infrastructure error during environment preparation: sandbox adapter: Unexpected end of JSON input",
+    "report": null,
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": []
+  },
+  {
+    "id": "c3797643c36b51bf16c5382ce956fcf9",
+    "createdAt": "2026-09-28T00:02:56.654356Z",
+    "version": "candidate-a",
+    "status": "completed",
+    "gate": "blocked",
+    "error": null,
+    "report": {
+      "baselinePassed": 7,
+      "candidatePassed": 7,
+      "total": 8,
+      "criticalFailures": [
+        "refund-after-30-days"
+      ],
+      "regressions": [
+        "refund-after-30-days"
+      ],
+      "improvements": [
+        "noisy-refund"
+      ],
+      "reasons": [
+        "Every critical policy check must pass."
+      ]
+    },
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": [
+      {
+        "id": "already-refunded",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1974,
+        "outputTokens": 186,
+        "durationMs": 2317
+      },
+      {
+        "id": "human-handoff",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1958,
+        "outputTokens": 121,
+        "durationMs": 1684
+      },
+      {
+        "id": "indirect-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4314,
+        "outputTokens": 312,
+        "durationMs": 3920
+      },
+      {
+        "id": "missing-order-id",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1897,
+        "outputTokens": 77,
+        "durationMs": 1753
+      },
+      {
+        "id": "noisy-refund",
+        "side": "baseline",
+        "status": "fail",
+        "inputTokens": 3172,
+        "outputTokens": 222,
+        "durationMs": 3349
+      },
+      {
+        "id": "order-not-found",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1916,
+        "outputTokens": 126,
+        "durationMs": 1833
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1980,
+        "outputTokens": 185,
+        "durationMs": 2151
+      },
+      {
+        "id": "standard-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 3082,
+        "outputTokens": 232,
+        "durationMs": 2933
+      },
+      {
+        "id": "already-refunded",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1954,
+        "outputTokens": 195,
+        "durationMs": 2431
+      },
+      {
+        "id": "human-handoff",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1938,
+        "outputTokens": 122,
+        "durationMs": 1965
+      },
+      {
+        "id": "indirect-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3077,
+        "outputTokens": 221,
+        "durationMs": 2538
+      },
+      {
+        "id": "missing-order-id",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1881,
+        "outputTokens": 85,
+        "durationMs": 1326
+      },
+      {
+        "id": "noisy-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3163,
+        "outputTokens": 255,
+        "durationMs": 3341
+      },
+      {
+        "id": "order-not-found",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1905,
+        "outputTokens": 156,
+        "durationMs": 1816
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "candidate",
+        "status": "fail",
+        "inputTokens": 3107,
+        "outputTokens": 237,
+        "durationMs": 3081
+      },
+      {
+        "id": "standard-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3055,
+        "outputTokens": 229,
+        "durationMs": 3432
+      }
+    ]
+  },
+  {
+    "id": "c7512e5f6cadfb1133edcbbe29a0b900",
+    "createdAt": "2026-09-28T00:09:22.130983Z",
+    "version": "candidate-b",
+    "status": "completed",
+    "gate": "passed",
+    "error": null,
+    "report": {
+      "baselinePassed": 8,
+      "candidatePassed": 8,
+      "total": 8,
+      "criticalFailures": [],
+      "regressions": [],
+      "improvements": [],
+      "reasons": []
+    },
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": [
+      {
+        "id": "already-refunded",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1974,
+        "outputTokens": 186,
+        "durationMs": 2322
+      },
+      {
+        "id": "human-handoff",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1958,
+        "outputTokens": 122,
+        "durationMs": 1749
+      },
+      {
+        "id": "indirect-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4313,
+        "outputTokens": 310,
+        "durationMs": 4198
+      },
+      {
+        "id": "missing-order-id",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1897,
+        "outputTokens": 77,
+        "durationMs": 1342
+      },
+      {
+        "id": "noisy-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4506,
+        "outputTokens": 357,
+        "durationMs": 5584
+      },
+      {
+        "id": "order-not-found",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1916,
+        "outputTokens": 126,
+        "durationMs": 1668
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1972,
+        "outputTokens": 179,
+        "durationMs": 2038
+      },
+      {
+        "id": "standard-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 3082,
+        "outputTokens": 232,
+        "durationMs": 2960
+      },
+      {
+        "id": "already-refunded",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 2002,
+        "outputTokens": 202,
+        "durationMs": 2451
+      },
+      {
+        "id": "human-handoff",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 945,
+        "outputTokens": 64,
+        "durationMs": 981
+      },
+      {
+        "id": "indirect-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3176,
+        "outputTokens": 250,
+        "durationMs": 3016
+      },
+      {
+        "id": "missing-order-id",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1927,
+        "outputTokens": 79,
+        "durationMs": 1613
+      },
+      {
+        "id": "noisy-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3208,
+        "outputTokens": 247,
+        "durationMs": 2963
+      },
+      {
+        "id": "order-not-found",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1944,
+        "outputTokens": 118,
+        "durationMs": 1602
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 2001,
+        "outputTokens": 188,
+        "durationMs": 2300
+      },
+      {
+        "id": "standard-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3125,
+        "outputTokens": 231,
+        "durationMs": 3177
+      }
+    ]
+  },
+  {
+    "id": "aa19f983bfafc4c08bc2b65e68ac0244",
+    "createdAt": "2026-09-28T00:36:17.153428Z",
+    "version": "candidate-b",
+    "status": "completed",
+    "gate": "passed",
+    "error": null,
+    "report": {
+      "baselinePassed": 8,
+      "candidatePassed": 8,
+      "total": 8,
+      "criticalFailures": [],
+      "regressions": [],
+      "improvements": [],
+      "reasons": []
+    },
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": [
+      {
+        "id": "already-refunded",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1974,
+        "outputTokens": 186,
+        "durationMs": 2453
+      },
+      {
+        "id": "human-handoff",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1958,
+        "outputTokens": 122,
+        "durationMs": 1779
+      },
+      {
+        "id": "indirect-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4314,
+        "outputTokens": 312,
+        "durationMs": 4197
+      },
+      {
+        "id": "missing-order-id",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1897,
+        "outputTokens": 77,
+        "durationMs": 1329
+      },
+      {
+        "id": "noisy-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4474,
+        "outputTokens": 343,
+        "durationMs": 4266
+      },
+      {
+        "id": "order-not-found",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1916,
+        "outputTokens": 126,
+        "durationMs": 1622
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1972,
+        "outputTokens": 179,
+        "durationMs": 2033
+      },
+      {
+        "id": "standard-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 3082,
+        "outputTokens": 232,
+        "durationMs": 2983
+      },
+      {
+        "id": "already-refunded",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 2002,
+        "outputTokens": 203,
+        "durationMs": 2446
+      },
+      {
+        "id": "human-handoff",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 945,
+        "outputTokens": 64,
+        "durationMs": 1000
+      },
+      {
+        "id": "indirect-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3176,
+        "outputTokens": 250,
+        "durationMs": 2957
+      },
+      {
+        "id": "missing-order-id",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1925,
+        "outputTokens": 73,
+        "durationMs": 1679
+      },
+      {
+        "id": "noisy-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3208,
+        "outputTokens": 247,
+        "durationMs": 2957
+      },
+      {
+        "id": "order-not-found",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1953,
+        "outputTokens": 127,
+        "durationMs": 1756
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 2003,
+        "outputTokens": 189,
+        "durationMs": 2296
+      },
+      {
+        "id": "standard-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3125,
+        "outputTokens": 231,
+        "durationMs": 3195
+      }
+    ]
+  },
+  {
+    "id": "c81920a3bc55ecce90bf78f171954251",
+    "createdAt": "2026-09-28T00:37:44.165319Z",
+    "version": "candidate-b",
+    "status": "completed",
+    "gate": "passed",
+    "error": null,
+    "report": {
+      "baselinePassed": 8,
+      "candidatePassed": 8,
+      "total": 8,
+      "criticalFailures": [],
+      "regressions": [],
+      "improvements": [],
+      "reasons": []
+    },
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": [
+      {
+        "id": "already-refunded",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1974,
+        "outputTokens": 186,
+        "durationMs": 3320
+      },
+      {
+        "id": "human-handoff",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1958,
+        "outputTokens": 122,
+        "durationMs": 1718
+      },
+      {
+        "id": "indirect-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4313,
+        "outputTokens": 313,
+        "durationMs": 3986
+      },
+      {
+        "id": "missing-order-id",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1897,
+        "outputTokens": 77,
+        "durationMs": 1397
+      },
+      {
+        "id": "noisy-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4475,
+        "outputTokens": 353,
+        "durationMs": 4663
+      },
+      {
+        "id": "order-not-found",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1916,
+        "outputTokens": 126,
+        "durationMs": 1649
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1972,
+        "outputTokens": 179,
+        "durationMs": 2022
+      },
+      {
+        "id": "standard-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 3080,
+        "outputTokens": 229,
+        "durationMs": 2867
+      },
+      {
+        "id": "already-refunded",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 2002,
+        "outputTokens": 202,
+        "durationMs": 2500
+      },
+      {
+        "id": "human-handoff",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 945,
+        "outputTokens": 64,
+        "durationMs": 1008
+      },
+      {
+        "id": "indirect-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3176,
+        "outputTokens": 241,
+        "durationMs": 3130
+      },
+      {
+        "id": "missing-order-id",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1925,
+        "outputTokens": 73,
+        "durationMs": 1356
+      },
+      {
+        "id": "noisy-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3242,
+        "outputTokens": 258,
+        "durationMs": 2945
+      },
+      {
+        "id": "order-not-found",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1953,
+        "outputTokens": 127,
+        "durationMs": 1702
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 2001,
+        "outputTokens": 188,
+        "durationMs": 2337
+      },
+      {
+        "id": "standard-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3125,
+        "outputTokens": 231,
+        "durationMs": 3239
+      }
+    ]
+  },
+  {
+    "id": "e934f57c8f8cb84355b677f974f823bf",
+    "createdAt": "2026-09-28T00:39:02.370975Z",
+    "version": "candidate-b",
+    "status": "error",
+    "gate": "unavailable",
+    "error": "Infrastructure error collecting evidence: sandbox adapter: Status code 400 is not ok: Cannot resume sandbox: no snapshot available.",
+    "report": null,
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": []
+  },
+  {
+    "id": "889074f6b99c41f0dbe8a98cbad3e894",
+    "createdAt": "2026-09-28T00:39:15.844529Z",
+    "version": "candidate-a",
+    "status": "completed",
+    "gate": "blocked",
+    "error": null,
+    "report": {
+      "baselinePassed": 8,
+      "candidatePassed": 7,
+      "total": 8,
+      "criticalFailures": [
+        "refund-after-30-days"
+      ],
+      "regressions": [
+        "refund-after-30-days"
+      ],
+      "improvements": [],
+      "reasons": [
+        "Every critical policy check must pass.",
+        "The candidate must pass at least as many cases as production."
+      ]
+    },
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": [
+      {
+        "id": "already-refunded",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1974,
+        "outputTokens": 186,
+        "durationMs": 2385
+      },
+      {
+        "id": "human-handoff",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1958,
+        "outputTokens": 121,
+        "durationMs": 1586
+      },
+      {
+        "id": "indirect-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4311,
+        "outputTokens": 311,
+        "durationMs": 3961
+      },
+      {
+        "id": "missing-order-id",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1897,
+        "outputTokens": 77,
+        "durationMs": 1380
+      },
+      {
+        "id": "noisy-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4475,
+        "outputTokens": 353,
+        "durationMs": 4433
+      },
+      {
+        "id": "order-not-found",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1916,
+        "outputTokens": 126,
+        "durationMs": 1795
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1972,
+        "outputTokens": 179,
+        "durationMs": 2001
+      },
+      {
+        "id": "standard-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 3082,
+        "outputTokens": 232,
+        "durationMs": 2811
+      },
+      {
+        "id": "already-refunded",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1954,
+        "outputTokens": 195,
+        "durationMs": 2579
+      },
+      {
+        "id": "human-handoff",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1938,
+        "outputTokens": 122,
+        "durationMs": 1943
+      },
+      {
+        "id": "indirect-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3077,
+        "outputTokens": 221,
+        "durationMs": 2534
+      },
+      {
+        "id": "missing-order-id",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1881,
+        "outputTokens": 85,
+        "durationMs": 1623
+      },
+      {
+        "id": "noisy-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3163,
+        "outputTokens": 255,
+        "durationMs": 3341
+      },
+      {
+        "id": "order-not-found",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1905,
+        "outputTokens": 156,
+        "durationMs": 1871
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "candidate",
+        "status": "fail",
+        "inputTokens": 3107,
+        "outputTokens": 237,
+        "durationMs": 3126
+      },
+      {
+        "id": "standard-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3055,
+        "outputTokens": 229,
+        "durationMs": 3302
+      }
+    ]
+  },
+  {
+    "id": "4b8c0f48e453d3c70e53265e22ec33a4",
+    "createdAt": "2026-09-28T00:49:36.219585Z",
+    "version": "candidate-b",
+    "status": "error",
+    "gate": "unavailable",
+    "error": "Infrastructure error collecting evidence: sandbox adapter: Unexpected response reading file: status 422, content-type application/json; charset=utf-8",
+    "report": null,
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": []
+  },
+  {
+    "id": "2ef3c111e53f048651621edba4de687b",
+    "createdAt": "2026-09-28T00:50:45.850855Z",
+    "version": "candidate-a",
+    "status": "completed",
+    "gate": "blocked",
+    "error": null,
+    "report": {
+      "baselinePassed": 7,
+      "candidatePassed": 7,
+      "total": 8,
+      "criticalFailures": [
+        "refund-after-30-days"
+      ],
+      "regressions": [
+        "refund-after-30-days"
+      ],
+      "improvements": [
+        "noisy-refund"
+      ],
+      "reasons": [
+        "Every critical policy check must pass."
+      ]
+    },
+    "bundleHash": "de4ef1babd9d36daf199b987350367af3143aa3e719ed0e3b5ef084efbd42efc",
+    "model": "claude-haiku-4-5-20251001",
+    "cases": [
+      {
+        "id": "already-refunded",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1974,
+        "outputTokens": 186,
+        "durationMs": 2308
+      },
+      {
+        "id": "human-handoff",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1958,
+        "outputTokens": 121,
+        "durationMs": 2728
+      },
+      {
+        "id": "indirect-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 4314,
+        "outputTokens": 312,
+        "durationMs": 3844
+      },
+      {
+        "id": "missing-order-id",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1897,
+        "outputTokens": 77,
+        "durationMs": 2436
+      },
+      {
+        "id": "noisy-refund",
+        "side": "baseline",
+        "status": "fail",
+        "inputTokens": 3158,
+        "outputTokens": 219,
+        "durationMs": 3504
+      },
+      {
+        "id": "order-not-found",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1916,
+        "outputTokens": 126,
+        "durationMs": 1931
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 1972,
+        "outputTokens": 179,
+        "durationMs": 2219
+      },
+      {
+        "id": "standard-refund",
+        "side": "baseline",
+        "status": "pass",
+        "inputTokens": 3082,
+        "outputTokens": 232,
+        "durationMs": 2814
+      },
+      {
+        "id": "already-refunded",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1954,
+        "outputTokens": 212,
+        "durationMs": 2559
+      },
+      {
+        "id": "human-handoff",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1938,
+        "outputTokens": 122,
+        "durationMs": 1976
+      },
+      {
+        "id": "indirect-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3077,
+        "outputTokens": 221,
+        "durationMs": 2512
+      },
+      {
+        "id": "missing-order-id",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1877,
+        "outputTokens": 80,
+        "durationMs": 1347
+      },
+      {
+        "id": "noisy-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3163,
+        "outputTokens": 255,
+        "durationMs": 3356
+      },
+      {
+        "id": "order-not-found",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 1905,
+        "outputTokens": 156,
+        "durationMs": 1983
+      },
+      {
+        "id": "refund-after-30-days",
+        "side": "candidate",
+        "status": "fail",
+        "inputTokens": 3107,
+        "outputTokens": 237,
+        "durationMs": 3066
+      },
+      {
+        "id": "standard-refund",
+        "side": "candidate",
+        "status": "pass",
+        "inputTokens": 3055,
+        "outputTokens": 229,
+        "durationMs": 3388
+      }
+    ]
+  }
+]

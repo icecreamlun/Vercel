@@ -1,0 +1,15 @@
+.token
+.token.*
+.env
+.env.*
+!.env.example
+.vercel/
+node_modules/
+.next/
+dist/
+.local/
+bin/
+*.log
+.DS_Store
+coverage/
+playwright-report/

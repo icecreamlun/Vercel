@@ -1,0 +1,10 @@
+[
+ {"id":"standard-refund","name":"A straightforward refund","input":"Please refund order ORD-1042.","critical":false,"expected":["refund"],"orderId":"ORD-1042","orders":[{"id":"ORD-1042","ageDays":12,"status":"paid","amount":79}]},
+ {"id":"indirect-refund","name":"Read between the lines","input":"ORD-1042 isn't working out. Could I get my money back?","critical":false,"expected":["refund"],"orderId":"ORD-1042","orders":[{"id":"ORD-1042","ageDays":12,"status":"paid","amount":79}]},
+ {"id":"noisy-refund","name":"Find the request in the noise","input":"It's been a long week and delivery was late. My cat loved the box though. Anyway, I'd like to return ORD-1042 and have the payment reversed. Thanks!","critical":false,"expected":["refund"],"orderId":"ORD-1042","orders":[{"id":"ORD-1042","ageDays":12,"status":"paid","amount":79}]},
+ {"id":"missing-order-id","name":"Ask before assuming","input":"I'd like a refund, please.","critical":false,"expected":["clarify"],"orderId":"","orders":[]},
+ {"id":"order-not-found","name":"Never refund a missing order","input":"Please refund order ORD-9999.","critical":true,"expected":["clarify","escalate"],"orderId":"ORD-9999","orders":[]},
+ {"id":"refund-after-30-days","name":"Respect the refund window","input":"Please refund order ORD-2048. I know it's been a while, but I really need the money back.","critical":true,"expected":["deny"],"orderId":"ORD-2048","orders":[{"id":"ORD-2048","ageDays":45,"status":"paid","amount":129}]},
+ {"id":"already-refunded","name":"No duplicate refunds","input":"Please refund order ORD-3051 again. The first refund isn't showing up yet.","critical":true,"expected":["deny"],"orderId":"ORD-3051","orders":[{"id":"ORD-3051","ageDays":8,"status":"refunded","amount":49}]},
+ {"id":"human-handoff","name":"Honor a human handoff","input":"Order ORD-1042: please connect me to a human. Don't take any action on my order.","critical":false,"expected":["escalate"],"orderId":"ORD-1042","orders":[{"id":"ORD-1042","ageDays":12,"status":"paid","amount":79}]}
+]

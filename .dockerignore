@@ -1,0 +1,9 @@
+.git
+.token*
+.env*
+.local
+node_modules
+web
+bin
+dist
+*.log

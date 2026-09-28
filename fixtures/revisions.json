@@ -1,0 +1,31 @@
+{
+  "repo": "icecreamlun/promptship-demo",
+  "path": "prompts/support.md",
+  "image": "vercel/sandbox/node@sha256:cefc6b545cc7412705678c59a963b130b515117dbef97d3f601f39b7e1b7d41b",
+  "versions": [
+    {
+      "id": "baseline",
+      "label": "Conservative baseline",
+      "description": "Explicit refund requests only.",
+      "sha": "37864d70696ff9d5e2c603cf8d06d338e30ec35d",
+      "blob": "f270859c362e1bebc470d18a1bd9c2329cd794c5",
+      "hash": "a830bb8abd9086f9a26f234615608a77f78fc13730428068b6e9f98d316b36a9"
+    },
+    {
+      "id": "candidate-a",
+      "label": "Resolve more requests",
+      "description": "Broader intent recognition, relaxed refund window.",
+      "sha": "6c6d9864a76f856bb98ac65e96e90465035bb9b6",
+      "blob": "3a28559eefb0f7a50a877ea7d23d2fbb9586d596",
+      "hash": "3ff7def84b38963fbb6813dc6df4ec1042eee5eb9d85ebe8ef0ce6c60fd8cbb5"
+    },
+    {
+      "id": "candidate-b",
+      "label": "Respect the policy",
+      "description": "Better intent recognition with policy safeguards.",
+      "sha": "5c6064093adca024016f5d3131859b7bc54ca88f",
+      "blob": "ae5a34d04986e3f76f4f5b8c6e0d38a49ff63fe9",
+      "hash": "9f25604ecfa20d344e922f12d6544860b4e4a2dc30ac1ae747b6c85784dea9ee"
+    }
+  ]
+}

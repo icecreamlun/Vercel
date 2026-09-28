@@ -1,0 +1,28 @@
+{
+  "name": "promptship",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build:runner": "esbuild runner/index.ts --bundle --platform=node --target=node22 --format=esm --outfile=dist/runner.mjs",
+    "build:web": "npm --prefix web run build",
+    "test:runner": "node --import tsx --test runner/*.test.ts",
+    "smoke": "node scripts/smoke.mjs",
+    "setup": "npm run build:runner && node scripts/catalog.mjs",
+    "infra": "node scripts/infra.mjs",
+    "verify:source": "node scripts/catalog.mjs --verify-remote",
+    "test": "npm run test:runner && go test ./...",
+    "format": "prettier --write runner scripts web/components web/app web/next.config.ts && gofmt -w cmd internal"
+  },
+  "dependencies": {
+    "@vercel/sandbox": "3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "prettier": "^3.9.9",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
