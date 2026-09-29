@@ -18,6 +18,8 @@ RUN CGO_ENABLED=0 go build -trimpath -o /promptship ./cmd/server
 FROM node:22-bookworm-slim
 WORKDIR /app
 ENV APP_ENV=production LISTEN_ADDR=0.0.0.0:8080 NODE_ENV=production
+# Go uses the system trust store for Temporal Cloud and other TLS connections.
+COPY --from=backend /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=backend /promptship /app/promptship
 COPY --from=runner /build/node_modules ./node_modules
 COPY --from=runner /build/dist ./dist
