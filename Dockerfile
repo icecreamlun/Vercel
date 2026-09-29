@@ -24,6 +24,7 @@ COPY --from=runner /build/dist ./dist
 COPY --from=runner /build/fixtures ./fixtures
 COPY scripts/sandbox.mjs scripts/env.mjs ./scripts/
 COPY package.json ./
+RUN mkdir -p /app/data && chown node:node /app/data
 USER node
 EXPOSE 8080
 CMD ["/app/promptship"]

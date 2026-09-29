@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: promptship-api
+    runtime: docker
+    plan: starter
+    region: oregon
+    numInstances: 1
+    autoDeployTrigger: off
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    disk:
+      name: promptship-runners
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: LISTEN_ADDR
+        value: 0.0.0.0:8080
+      - key: BUNDLE_DIR
+        value: /app/data/bundles
+      - key: APP_ORIGIN
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: promptship-db
+          property: connectionString
+      - key: TEMPORAL_ADDRESS
+        sync: false
+      - key: TEMPORAL_NAMESPACE
+        sync: false
+      - key: TEMPORAL_API_KEY
+        sync: false
+      - key: VERCEL_TOKEN
+        sync: false
+      - key: VERCEL_TEAM_ID
+        sync: false
+      - key: VERCEL_PROJECT_ID
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+databases:
+  - name: promptship-db
+    plan: basic-256mb
+    region: oregon
+    databaseName: promptship
+    user: promptship
+    postgresMajorVersion: "17"
+    diskSizeGB: 1
+    ipAllowList: []

@@ -97,6 +97,8 @@ Real-run validation and fault experiments are recorded in [docs/validation.md](d
 
 ## Deploy
 
+See [docs/deployment.md](docs/deployment.md) for the resource checklist, configuration order, and public acceptance checks.
+
 The frontend can run on Vercel with project root `web` and `API_URL` set to the publicly reachable Go service. The backend `Dockerfile` includes Go and the Node Sandbox adapter. Provide PostgreSQL, Temporal Cloud connection settings, Vercel Sandbox credentials, and the Anthropic key through the backend secret manager. Set `APP_ORIGIN` to the exact public frontend origin, `APP_ENV=production`, and `LISTEN_ADDR=0.0.0.0:8080`.
 
 `GET /health` checks database connectivity. Set `BUNDLE_DIR` to a persistent volume directory writable by the container’s `node` user. On startup, the backend installs this build’s verified bundles into that content-addressed archive without overwriting prior versions. Existing releases continue to use their pinned bundle. Promotion rejects a missing or corrupted bundle. Local development defaults to `dist/bundles`, which is preserved between builds. Supply `TEMPORAL_API_KEY` for API-key-authenticated Temporal Cloud; local dev uses the unauthenticated local server.

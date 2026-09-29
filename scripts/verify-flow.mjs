@@ -1,12 +1,17 @@
 import { readFile, writeFile } from "node:fs/promises";
 import assert from "node:assert/strict";
-const cookie = await readFile(".local/smoke-cookie", "utf8");
+const endpoint = process.env.SMOKE_API || "http://127.0.0.1:8080";
+const origin = process.env.SMOKE_ORIGIN || "http://localhost:3000";
+const cookie = await readFile(
+  process.env.SMOKE_COOKIE || ".local/smoke-cookie",
+  "utf8",
+);
 async function request(path, body, session = cookie) {
-  const response = await fetch("http://127.0.0.1:8080/api" + path, {
+  const response = await fetch(endpoint + "/api" + path, {
     method: body === undefined ? "GET" : "POST",
     headers: {
       Cookie: session,
-      Origin: "http://localhost:3000",
+      Origin: origin,
       "Content-Type": "application/json",
       "X-PromptShip-Request": "1",
       "Idempotency-Key": crypto.randomUUID(),
