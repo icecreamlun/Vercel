@@ -1,0 +1,75 @@
+{
+  "verifiedAt": "2026-09-29T04:57:01.487Z",
+  "frontend": "https://vercel-b2r2.vercel.app",
+  "backend": "https://promptship-api.onrender.com",
+  "security": {
+    "checkedAt": "2026-09-29T04:53:38.432Z",
+    "blockedPromotion": 409,
+    "secureCookie": true,
+    "httpOnly": true,
+    "sameSiteStrict": true,
+    "noStore": true,
+    "restart": {
+      "jobId": "ab9afbf4dd61ef6c8b75aba7981d6751",
+      "sameCommandId": "cmd_67d81e8f760945ed93115fce165b",
+      "leaseBefore": 1,
+      "leaseAfter": 2,
+      "results": 16,
+      "status": "completed",
+      "gate": "passed"
+    }
+  },
+  "flow": {
+    "verifiedAt": "2026-09-29T04:54:28.302Z",
+    "sourceRun": "ab9afbf4dd61ef6c8b75aba7981d6751",
+    "releaseId": "eb415ce93eade6a7b9ba175a0be7de2f",
+    "concurrentPromotionRequests": 5,
+    "generationBefore": 1,
+    "generationAfter": 2,
+    "crossSessionIsolation": "passed",
+    "playground": [
+      {
+        "id": "5bf6c6573af93fc178f64fe23c21879b",
+        "decision": "deny",
+        "releaseId": "eb415ce93eade6a7b9ba175a0be7de2f",
+        "promptHash": "9f25604ecfa20d344e922f12d6544860b4e4a2dc30ac1ae747b6c85784dea9ee"
+      },
+      {
+        "id": "219ddd7abded9350e35107917fbddd12",
+        "decision": "refund",
+        "releaseId": "eb415ce93eade6a7b9ba175a0be7de2f",
+        "promptHash": "9f25604ecfa20d344e922f12d6544860b4e4a2dc30ac1ae747b6c85784dea9ee"
+      }
+    ]
+  },
+  "cleanup": [
+    {
+      "id": "219ddd7abded9350e35107917fbddd12",
+      "kind": "playground",
+      "gate": "unavailable",
+      "cases": 1,
+      "allSandboxesCleaned": true
+    },
+    {
+      "id": "5bf6c6573af93fc178f64fe23c21879b",
+      "kind": "playground",
+      "gate": "unavailable",
+      "cases": 1,
+      "allSandboxesCleaned": true
+    },
+    {
+      "id": "ab9afbf4dd61ef6c8b75aba7981d6751",
+      "kind": "eval",
+      "gate": "passed",
+      "cases": 16,
+      "allSandboxesCleaned": true
+    },
+    {
+      "id": "a6bae3f0e0147cefaf1d1b666f21f060",
+      "kind": "eval",
+      "gate": "blocked",
+      "cases": 16,
+      "allSandboxesCleaned": true
+    }
+  ]
+}

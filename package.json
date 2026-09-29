@@ -8,11 +8,12 @@
     "build:runner": "esbuild runner/index.ts --bundle --platform=node --target=node22 --format=esm --outfile=dist/runner.mjs",
     "build:web": "npm --prefix web run build",
     "test:runner": "node --import tsx --test runner/*.test.ts",
+    "test:web": "node --import tsx --test web/components/*.test.ts",
     "smoke": "node scripts/smoke.mjs",
     "setup": "npm run build:runner && node scripts/catalog.mjs",
     "infra": "node scripts/infra.mjs",
     "verify:source": "node scripts/catalog.mjs --verify-remote",
-    "test": "npm run test:runner && go test ./...",
+    "test": "npm run test:runner && npm run test:web && go test ./...",
     "format": "prettier --write runner scripts web/components web/app web/next.config.ts && gofmt -w cmd internal"
   },
   "dependencies": {

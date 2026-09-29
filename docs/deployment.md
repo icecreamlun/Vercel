@@ -53,13 +53,40 @@ Supply credentials through the backend host's secret manager. Deploy only `web` 
 
 The budget counter is specific to the deployed database. Check its configured cap before sharing the URL; public visitors can consume the configured allowance through real model and Sandbox calls.
 
-## Current status
+## Live deployment
 
-The local application and its cloud Sandbox integration have been exercised. On 2026-09-28, a read-only `temporal workflow count` request successfully authenticated to the supplied Temporal Cloud namespace and returned zero executions. This verifies endpoint reachability and read access, not worker polling or workflow execution. Connection settings are stored locally in the gitignored `.local/temporal-cloud.env` with file mode 0600; local services have not been switched to Cloud.
+The application is deployed and its public flow was validated on 2026-09-29 (UTC):
 
-A complete public deployment still needs backend hosting and PostgreSQL. The Temporal Cloud service is available, but the Go API and worker still require their own compute. A frontend-only deployment would not provide working evaluations.
+- Frontend: https://vercel-b2r2.vercel.app
+- Backend: https://promptship-api.onrender.com
+- Render service: `srv-datk43ugekts73b5bnpg`, Starter / 512 MB, one always-on instance.
+- Render PostgreSQL: `dpg-datk1e2d0e5s73ce5v9g-a`, Basic 256 MB, 1 GB storage, external access disabled.
+- Runner archive: 1 GB persistent disk at `/app/data`; `BUNDLE_DIR=/app/data/bundles`.
+- Temporal Cloud: `quickstart-lizhuolun-02eaca83.stiyq`.
+- Deployment source: private GitHub repository `icecreamlun/Vercel`, branch `codex/deploy-render-vercel`.
 
-The Render key successfully authenticated to the workspace. The initial paid database creation request returned HTTP 402 because payment information was missing. No database was created by that request. Add payment information in Render Billing before retrying provisioning.
+Render automatic deployments are disabled. The backend was built from commit `26b9416`; the final frontend from `6157b14`. Frontend configuration uses project root `web`, Node 22, and `API_URL=https://promptship-api.onrender.com`. Its production URL is publicly accessible. Other Vercel aliases are not accepted as mutation origins; use the canonical frontend URL above.
+
+The backend includes the system CA trust bundle for verified TLS connections to Temporal Cloud. The initial slim image lacked this file; that startup failure was fixed without weakening certificate verification. The frontend also now handles non-JSON gateway errors and clears its connection error when polling recovers.
+
+### Production validation
+
+| Check | Result |
+| --- | --- |
+| Candidate A (`a6bae3f0e0147cefaf1d1b666f21f060`) | 16 results, blocked for the expired-order critical regression; promotion rejected with HTTP 409 |
+| Candidate B (`ab9afbf4dd61ef6c8b75aba7981d6751`) | 16 results, candidate 8/8, gate passed |
+| Worker restart during Candidate B | Existing Sandbox command retained; baseline lease advanced from 1 to 2 and the run completed |
+| Five simultaneous promotions | Same release returned; generation advanced once, from 1 to 2 |
+| Cross-session reads and promotion | Rejected with HTTP 404 |
+| Published Playground, expired order | Denied, with no refund tool call |
+| Published Playground, eligible order | Refunded, with exactly one refund tool call |
+| Production cookies | Secure, HttpOnly, SameSite=Strict; API responses use `Cache-Control: no-store` |
+| Temporary Sandbox cleanup | All executions from the four validation jobs cleaned up |
+| Browser UI | Production page, evaluation dialog, prompt diff, recorded case evidence inspected |
+
+Validation uses an isolated session, so a new visitor starts with a fresh baseline and sees the existing read-only examples. Model outputs remain nondeterministic; a passing validation run is not a guarantee that all future model calls will pass.
+
+One backend instance with a persistent disk has a brief API interruption during restarts/deployments. Temporal recovers active evaluations, and the browser retries polling. This is an always-on deployment, not a high-availability deployment.
 
 To run the acceptance scripts against the final frontend URL, use a dedicated cookie file so the local development session stays separate:
 
