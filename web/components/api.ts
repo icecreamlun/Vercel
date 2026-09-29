@@ -16,7 +16,19 @@ export async function api<T>(
           },
     body: body === undefined ? undefined : JSON.stringify(body),
   });
-  const value = await response.json();
-  if (!response.ok) throw new Error(value.error || "Something went wrong.");
+  let value;
+  try {
+    value = await response.json();
+  } catch {
+    throw new Error(
+      "The service is temporarily unavailable. Please try again.",
+    );
+  }
+  if (!response.ok)
+    throw new Error(
+      typeof value?.error === "string"
+        ? value.error
+        : "The request could not be completed. Please try again.",
+    );
   return value;
 }

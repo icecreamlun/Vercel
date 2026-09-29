@@ -61,7 +61,7 @@ export default function Workspace() {
         const next = await api<Data>("/project");
         if (!disposed) {
           setData(next);
-          setError("");
+          setConnectionError("");
         }
       } catch (e) {
         if (!disposed) setConnectionError((e as Error).message);
